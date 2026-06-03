@@ -32,6 +32,92 @@
 
     <title>Free Debt Snowball Calculator | Plan Your Debt Payoff Timeline</title>
 
+    <meta name="description" content="Free debt snowball &amp; avalanche calculator. See your debt-free date, total interest saved, and the smartest payoff order — 100% private, no sign-up, runs in your browser.">
+    <meta name="keywords" content="debt snowball calculator, debt avalanche calculator, debt payoff calculator, debt free date, pay off debt, debt repayment plan, snowball vs avalanche, get out of debt">
+    <meta name="author" content="DebtSnowball">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://oscargml.github.io/Debt-Snowball-Calculator/">
+    <meta name="theme-color" content="#0284c7">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="DebtSnowball">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://oscargml.github.io/Debt-Snowball-Calculator/">
+    <meta property="og:title" content="Free Debt Snowball Calculator | Plan Your Debt Payoff Timeline">
+    <meta property="og:description" content="See your debt-free date and total interest saved. Compare the Snowball vs Avalanche method — 100% private, no sign-up.">
+    <meta property="og:image" content="https://oscargml.github.io/Debt-Snowball-Calculator/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Debt Snowball Calculator | Plan Your Debt Payoff Timeline">
+    <meta name="twitter:description" content="See your debt-free date and total interest saved. Snowball vs Avalanche — 100% private, no sign-up.">
+    <meta name="twitter:image" content="https://oscargml.github.io/Debt-Snowball-Calculator/og-image.png">
+
+    <!-- Structured data: the app itself -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Debt Snowball Calculator",
+      "description": "Free debt snowball and avalanche calculator. Estimate your debt-free date, total interest, and the optimal payoff order. 100% private and client-side.",
+      "url": "https://oscargml.github.io/Debt-Snowball-Calculator/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "image": "https://oscargml.github.io/Debt-Snowball-Calculator/og-image.png",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+
+    <!-- Structured data: FAQ (answers mirror the on-page FAQ for rich-result eligibility) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which strategy is objectively better, the Debt Snowball or the Debt Avalanche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mathematically, the Avalanche method saves the most money because it targets the highest interest rate first. However, behavioral research shows the Debt Snowball is often more successful in practice: the immediate psychological reward of erasing an entire account keeps people motivated to stick to their plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is negative amortization, and why does my calculation show a warning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Negative amortization occurs when your required minimum payment is lower than the interest that accrues on a balance each month, so the debt grows instead of shrinks. If the calculator shows a warning, increase your payment so it at least covers the monthly interest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't this debt calculator require a login or account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your financial situation is your business alone. This calculator is a static, serverless tool: every calculation runs locally inside your browser. No data is ever transmitted, logged, or stored on an external server."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!--
+      MONETIZATION — Google AdSense (manual step):
+      Once your AdSense account is approved, add the adsbygoogle loader script here with
+      your real publisher ID, then enable Auto Ads (AdSense dashboard > Ads > By site) so
+      Google automatically fills the reserved .ad-slot zones on this page.
+      The exact loader snippet and instructions are in the README ("SEO & monetization").
+      Do NOT ship a placeholder publisher ID — unfilled/fake units violate AdSense policy.
+    -->
+
     <style>
 
         :root {
@@ -478,7 +564,127 @@
 
 
 
-        /* AdSense Placeholder Slots */
+        /* Add / remove debt controls */
+
+        .remove-btn {
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--text-muted);
+
+            font-size: 1.3rem;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            padding: 0 4px;
+
+        }
+
+        .remove-btn:hover { color: #dc2626; }
+
+        .add-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            background: #e0f2fe;
+
+            color: var(--primary-hover);
+
+            border: 1px solid #bae6fd;
+
+            border-radius: 8px;
+
+            padding: 10px 16px;
+
+            font-weight: 600;
+
+            font-size: 0.9rem;
+
+            cursor: pointer;
+
+        }
+
+        .add-btn:hover { background: #bae6fd; }
+
+        .share-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            width: 100%;
+
+            justify-content: center;
+
+            margin-top: 16px;
+
+            background: var(--primary);
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            font-weight: 700;
+
+            font-size: 0.95rem;
+
+            cursor: pointer;
+
+        }
+
+        .share-btn:hover { background: var(--primary-hover); }
+
+        .res-date { font-size: 0.95rem; color: var(--text-muted); margin-top: 4px; }
+
+        .toast {
+
+            position: fixed;
+
+            bottom: 24px;
+
+            left: 50%;
+
+            transform: translateX(-50%) translateY(20px);
+
+            background: var(--text-main);
+
+            color: #fff;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 0.9rem;
+
+            font-weight: 600;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: all 0.3s;
+
+            z-index: 999;
+
+        }
+
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Reserved ad zone (filled by AdSense Auto Ads once approved) */
 
         .adsense-placeholder {
 
@@ -516,19 +722,19 @@
 
 <div class="container">
 
-    <!-- Top Ad Slot -->
+    <!-- Reserved ad zone — filled by AdSense Auto Ads once approved -->
 
-    <div class="adsense-placeholder">Responsive Banner Ad Slot (Header)</div>
+    <div class="adsense-placeholder ad-slot">Advertisement</div>
 
 
 
     <header>
 
-        <h1>Stateless Debt Payoff Calculator</h1>
+        <h1>Free Debt Snowball Calculator</h1>
 
-        <p>Visualize your path to financial freedom using proven repayment frameworks.</p>
+        <p>See your debt-free date and total interest in seconds. Compare the Debt Snowball and Debt Avalanche methods side by side.</p>
 
-        <span class="privacy-badge">🔒 100% Private: Data stays locally in your browser</span>
+        <span class="privacy-badge">🔒 100% Private · No sign-up · Runs in your browser</span>
 
     </header>
 
@@ -588,55 +794,23 @@
 
                             <th>Min. Payment ($)</th>
 
+                            <th></th>
+
                         </tr>
 
                     </thead>
 
                     <tbody id="debt-table-body">
 
-                        <!-- Initialized with 3 distinct real-world financial balance profiles -->
-
-                        <tr>
-
-                            <td><input type="text" value="Medical Bill" class="debt-name"></td>
-
-                            <td><input type="number" value="500" class="debt-balance" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="0" class="debt-rate" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="25" class="debt-min" onchange="runCalculation()"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td><input type="text" value="Credit Card" class="debt-name"></td>
-
-                            <td><input type="number" value="1500" class="debt-balance" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="22" class="debt-rate" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="40" class="debt-min" onchange="runCalculation()"></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td><input type="text" value="Student Loan" class="debt-name"></td>
-
-                            <td><input type="number" value="8000" class="debt-balance" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="5" class="debt-rate" onchange="runCalculation()"></td>
-
-                            <td><input type="number" value="120" class="debt-min" onchange="runCalculation()"></td>
-
-                        </tr>
+                        <!-- Rows rendered by JS so shareable links can rebuild the table -->
 
                     </tbody>
 
                 </table>
 
             </div>
+
+            <button class="add-btn" onclick="addDebt()">+ Add another debt</button>
 
         </div>
 
@@ -657,6 +831,8 @@
                     <span>Estimated Time to Freedom</span>
 
                     <div class="result-value" id="res-months">0 Months</div>
+
+                    <div class="res-date" id="res-date"></div>
 
                 </div>
 
@@ -684,9 +860,11 @@
 
 
 
-                <!-- Mid-Widget Focus Native Ad Placement -->
+                <button class="share-btn" onclick="sharePlan()">🔗 Copy my shareable plan link</button>
 
-                <div class="adsense-placeholder" style="margin-top:25px; padding: 40px 10px;">Display Ad Slot (Sidebar)</div>
+                <!-- Reserved ad zone — filled by AdSense Auto Ads once approved -->
+
+                <div class="adsense-placeholder ad-slot" style="margin-top:25px; padding: 40px 10px;">Advertisement</div>
 
             </div>
 
@@ -768,9 +946,57 @@
 
 </section>
 
+<div class="toast" id="toast"></div>
+
 <script>
 
     let currentStrategy = 'snowball';
+
+    const DEFAULT_DEBTS = [
+
+        { n: 'Medical Bill', b: 500,  r: 0,  m: 25 },
+
+        { n: 'Credit Card',  b: 1500, r: 22, m: 40 },
+
+        { n: 'Student Loan', b: 8000, r: 5,  m: 120 }
+
+    ];
+
+    function renderDebtRow(d) {
+
+        const tr = document.createElement('tr');
+
+        tr.innerHTML =
+
+            '<td><input type="text" value="' + String(d.n || '').replace(/"/g, '&quot;') + '" class="debt-name" oninput="runCalculation()"></td>' +
+
+            '<td><input type="number" value="' + (d.b ?? '') + '" class="debt-balance" min="0" onchange="runCalculation()"></td>' +
+
+            '<td><input type="number" value="' + (d.r ?? '') + '" class="debt-rate" min="0" step="0.1" onchange="runCalculation()"></td>' +
+
+            '<td><input type="number" value="' + (d.m ?? '') + '" class="debt-min" min="0" onchange="runCalculation()"></td>' +
+
+            '<td><button class="remove-btn" title="Remove debt" onclick="removeDebt(this)">&times;</button></td>';
+
+        document.getElementById('debt-table-body').appendChild(tr);
+
+    }
+
+    function addDebt() {
+
+        renderDebtRow({ n: 'New Debt', b: 1000, r: 15, m: 30 });
+
+        runCalculation();
+
+    }
+
+    function removeDebt(btn) {
+
+        btn.closest('tr').remove();
+
+        runCalculation();
+
+    }
 
 
 
@@ -843,6 +1069,8 @@
             document.getElementById('res-months').innerText = '0 Months';
 
             document.getElementById('res-interest').innerText = '$0';
+
+            document.getElementById('res-date').innerText = '';
 
             return;
 
@@ -986,6 +1214,12 @@
 
             document.getElementById('res-interest').innerText = `$${Math.round(totalInterestPaid).toLocaleString()}`;
 
+            const freeDate = new Date();
+
+            freeDate.setMonth(freeDate.getMonth() + totalMonths);
+
+            document.getElementById('res-date').innerText = 'Debt-free by ' + freeDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
 
 
         } catch (e) {
@@ -994,13 +1228,113 @@
 
             document.getElementById('res-interest').innerText = 'Mins Too Low';
 
+            document.getElementById('res-date').innerText = 'Increase payments to cover interest';
+
         }
 
     }
 
 
 
-    // Run initial calculation on page load render setup
+    function showToast(msg) {
+
+        const t = document.getElementById('toast');
+
+        t.innerText = msg;
+
+        t.classList.add('show');
+
+        clearTimeout(t._timer);
+
+        t._timer = setTimeout(() => t.classList.remove('show'), 2600);
+
+    }
+
+    function currentPlan() {
+
+        const debts = [...document.querySelectorAll('#debt-table-body tr')].map(row => ({
+
+            n: row.querySelector('.debt-name').value,
+
+            b: parseFloat(row.querySelector('.debt-balance').value) || 0,
+
+            r: parseFloat(row.querySelector('.debt-rate').value) || 0,
+
+            m: parseFloat(row.querySelector('.debt-min').value) || 0
+
+        }));
+
+        return { s: currentStrategy, e: parseFloat(document.getElementById('extra-payment').value) || 0, d: debts };
+
+    }
+
+    function sharePlan() {
+
+        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(currentPlan()))));
+
+        const url = location.origin + location.pathname + '#plan=' + encoded;
+
+        history.replaceState(null, '', url);
+
+        if (navigator.share) {
+
+            navigator.share({ title: 'My debt payoff plan', url }).catch(() => {});
+
+        } else if (navigator.clipboard) {
+
+            navigator.clipboard.writeText(url).then(() => showToast('Link copied to clipboard ✓')).catch(() => prompt('Copy your plan link:', url));
+
+        } else {
+
+            prompt('Copy your plan link:', url);
+
+        }
+
+    }
+
+    function loadFromUrl() {
+
+        const m = location.hash.match(/plan=([^&]+)/);
+
+        if (!m) return false;
+
+        try {
+
+            const plan = JSON.parse(decodeURIComponent(escape(atob(m[1]))));
+
+            if (!plan.d || !plan.d.length) return false;
+
+            document.getElementById('debt-table-body').innerHTML = '';
+
+            plan.d.forEach(renderDebtRow);
+
+            currentStrategy = plan.s === 'avalanche' ? 'avalanche' : 'snowball';
+
+            setStrategy(currentStrategy);
+
+            const ep = document.getElementById('extra-payment');
+
+            ep.value = plan.e ?? 150;
+
+            updateExtraPaymentValue(ep.value);
+
+            return true;
+
+        } catch (e) {
+
+            return false;
+
+        }
+
+    }
+
+    // Init: rebuild from a shared link if present, otherwise render the default example
+
+    if (!loadFromUrl()) {
+
+        DEFAULT_DEBTS.forEach(renderDebtRow);
+
+    }
 
     runCalculation();
 

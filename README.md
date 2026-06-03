@@ -1,35 +1,67 @@
-# Stateless Debt Snowball & Avalanche Calculator
+# Debt Snowball Calculator
 
-A blazing fast, privacy-first, 100% client-side personal finance utility designed to help users calculate, visualize, and optimize their debt payoff timelines.
+A free, privacy-first debt payoff calculator. Enter your debts and see your
+**debt-free date**, **total interest**, and the smartest payoff order — comparing
+the **Debt Snowball** and **Debt Avalanche** methods side by side. Everything runs
+client-side in the browser; no accounts, no servers, no data leaves your device.
 
-## 🚀 Key Features
+**Live:** https://oscargml.github.io/Debt-Snowball-Calculator/
 
-- **Dual-Engine Logic:** Seamlessly switch timelines between the **Debt Snowball** framework (prioritizing psychological momentum by ordering smallest balances first) and the **Debt Avalanche** framework (prioritizing mathematical efficiency by ordering highest interest rates first).
-- **100% Stateless & Private:** Financial data is incredibly sensitive. This tool processes all monthly amortization loops directly inside the user's browser via native JavaScript. No databases, no user accounts, no server uploads, and tracking analytics.
-- **Responsive Fluid Layout:** Tailored with a modern, clean CSS grid system that scales seamlessly across ultra-wide desktop monitors, tablets, and mobile displays.
-- **Monetization Ready:** Pre-configured structural layout zones optimized for non-intrusive Google AdSense responsive units and sticky anchor slots.
+## Features
 
-## 🛠️ Technology Stack
+- **Snowball vs. Avalanche** — toggle between paying the smallest balance first
+  (momentum) or the highest interest rate first (math), and watch the timeline change.
+- **Debt-free date** — results show both months to payoff and the calendar month
+  you'll be free, plus total interest paid.
+- **Add / remove debts** — start from an example, then add as many debts as you have.
+- **Shareable plan links** — "Copy my shareable plan link" encodes your inputs into
+  the URL so you can save or share a scenario (great for backlinks and revisiting).
+- **100% private** — a single static `index.html`; all amortization runs in your
+  browser. Privacy-friendly Google Analytics (page views only) is the only network call.
 
-- **HTML5:** Semantic architecture layout wrapper.
-- **CSS3:** Custom properties (variables), Flexbox, Grid, and responsive viewports.
-- **Vanilla JavaScript (ES6+):** High-performance, month-by-month simulation looping engine utilizing synchronous balance decay matrix calculations.
+## Tech stack
 
-## 📦 Zero-Friction Local Deployment
+- **HTML5 + CSS3** — single-file app, custom properties, responsive CSS grid.
+- **Vanilla JavaScript (ES6+)** — month-by-month payoff simulation, no frameworks,
+  no build step.
 
-Because this utility is entirely stateless and does not rely on heavy backend frameworks or Node.js build dependencies, you can run or deploy it locally in seconds:
+## File layout
 
-1. Clone or download this repository.
-2. Navigate to the root directory folder.
-3. Open `index.html` directly in any modern web browser (Chrome, Edge, Safari, Firefox).
+| File | Purpose |
+|------|---------|
+| `index.html` | The entire app: markup, styles, and the calculation/share logic |
+| `favicon.svg`, `apple-touch-icon.png`, `logo.png` | Brand icons |
+| `og-image.png` | 1200×630 social share image |
+| `sitemap.xml`, `robots.txt` | SEO crawl files |
+| `google25f1072709fa8a10.html` | Google Search Console file verification |
 
-## 🌐 Production Hosting
+## Run locally
 
-This project is fully optimized for static web hosting architectures. For production deployment with zero server maintenance overhead, simply drag-and-drop or link this repository directly to:
-- **Cloudflare Pages** (Recommended for unmetered high-traffic scaling)
-- **Vercel**
-- **Netlify**
+```bash
+git clone https://github.com/oscargml/Debt-Snowball-Calculator.git
+cd Debt-Snowball-Calculator
+python -m http.server 8000   # then open http://localhost:8000
+```
 
-## 📄 License
+Or just open `index.html` in any modern browser.
 
-This project is open-source and available under the [MIT License](LICENSE). Feel free to fork, modify, and optimize for your own local tax or regional specifications.
+## SEO & monetization setup
+
+**Already wired:**
+- Title, meta description, canonical, Open Graph + Twitter cards, and an OG image.
+- JSON-LD structured data: `WebApplication` + `FAQPage` (rich-result eligible).
+- Google Analytics (`G-CMKPNHRNWQ`) and Search Console verification.
+- `sitemap.xml` + `robots.txt`.
+- Buy Me a Coffee support button (`velmorpub`).
+- Reserved ad zones (`.ad-slot`) ready for AdSense Auto Ads.
+
+**Manual steps to turn on ads:** once your AdSense account is approved, uncomment the
+loader `<script>` in the `<head>` (replace `ca-pub-XXXXXXXXXXXXXXXX` with your real
+publisher ID), then enable **Auto Ads → By site** in the AdSense dashboard. Google
+will fill the reserved zones automatically — don't ship a placeholder/fake `ca-pub` id.
+
+**After deploy:** submit `sitemap.xml` in Google Search Console and request indexing.
+
+## License
+
+MIT — fork, modify, and adapt for your own region or tax rules.

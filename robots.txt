@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oscargml.github.io/Debt-Snowball-Calculator/sitemap.xml
